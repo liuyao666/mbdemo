@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="imginfor">
-            <img src="../../public/img/a1.jpg" >
+            <img src="../../public/img/a1.png" >
         </div>
         <div class="gj">
             <p>常用工具</p>

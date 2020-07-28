@@ -10,31 +10,40 @@
       </div>
     </div>
     <div class="nav">
-      <li
-        class="nav_li"
-        v-for="(v,i) in arr1"
-        :key="i"
-        :class="{active : active == v.title}"
-        @click="selected(v.title)"
-      >{{v.title}}</li>
+      <div class="jx">
+        精选
+      </div>
+      <div class="hd">
+          <li
+          class="nav_li"
+          v-for="(v,i) in arr1"
+          :key="i"
+          :class="{active : active == v.title}"
+          @click="selected(v.title)"
+        >{{v.title}}</li> 
+      </div>
+      <div class="xiabtn" @click="fuck">X</div>
     </div>
-    <Swiper></Swiper>
+    <div class="down" v-if="down">
+
+    </div>
+
+    <!-- <Swiper></Swiper> -->
     <BottomBar></BottomBar>
     <router-view></router-view>
   </div>
 </template>
 <script>
 import BottomBar from "@/components/bottombar.vue";
-import Swiper from '@/components/swiper.vue'
+// import Swiper from '@/components/swiper.vue'
 export default {
   components: {
     BottomBar,
-    Swiper
+    // Swiper
   },
   data() {
     return {
       arr1: [
-        { title: "精选" },
         { title: "美食" },
         { title: "女装" },
         { title: "美妆" },
@@ -46,7 +55,8 @@ export default {
         { title: "母婴" },
         { title: "家装家纺" }
       ],
-      active: ""
+      active: "",
+      down:false,
     };
   },
   methods: {
@@ -55,7 +65,10 @@ export default {
     },
     sousuo() {
       this.$router.push("/sousuo");
-    }
+    },
+    fuck(){
+      this.down = !this.down
+    },
   }
 };
 </script>
@@ -107,11 +120,21 @@ li {
 }
 .nav {
   height: 36px;
-  width: 100%;
+  line-height: 30px;
+  display: flex;
+  white-space: nowrap;
+}
+.jx{
+ font-size: 16px;
+ margin-left: 5px;
+  margin-right: 5px;
+}
+.hd {
+  height: 36px;
   line-height: 30px;
   display: flex;
   overflow-x: scroll;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   white-space: nowrap;
 }
 .nav_li {
@@ -120,10 +143,20 @@ li {
   margin-left: 5px;
   margin-right: 5px;
 }
+.xiabtn{
+  width: 10px;
+  margin: 0 auto;
+  font-size: 40px;
+}
 .active {
   /* background: #fd7522;
   border: 1px solid #fd7522; */
   color: red;
   border-bottom: 1px solid red;
+}
+.down{
+  background-color: red;
+  width: 100%;
+  height: 100px;
 }
 </style>

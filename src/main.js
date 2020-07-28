@@ -8,7 +8,6 @@ import './assets/iconfont/iconfont.css'
 import 'lib-flexible'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
-import 'swiper/css/swiper.css';
 
 Vue.use(VueAwesomeSwiper)
 import axios from 'axios'

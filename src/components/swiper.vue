@@ -1,31 +1,52 @@
 <template>
-     <swiper :options="swiperOption">
+     <swiper ref="mySwiper" :options="swiperOption" >
         <swiper-slide><img src="../../public/img/1.jpg"></swiper-slide>
         <swiper-slide><img src="../../public/img/2.jpg"></swiper-slide>
         <swiper-slide><img src="../../public/img/3.jpg"></swiper-slide>
         <swiper-slide><img src="../../public/img/4.jpg"></swiper-slide>
+         <!-- Optional controls -->
+        <div class="swiper-pagination"  slot="pagination"></div>
+        <div class="swiper-button-prev" slot="button-prev"></div>
+        <div class="swiper-button-next" slot="button-next"></div>
+        <div class="swiper-scrollbar"   slot="scrollbar"></div>
     </swiper>
-    <!--以下看需要添加-->
-    <!-- <div class="swiper-scrollbar"></div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div> 
-    <div class="swiper-pagination"></div>  -->
 </template>
 <script>
 import 'swiper/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
+    name: 'carrousel',
    components:{
        swiper,
        swiperSlide
    },
-   data(){
-       return{
-      swiperOption: {//swiper3
-      autoplay: 3000,
-      speed: 1000,
+    computed: {
+      swiper() {
+        return this.$refs.mySwiper.swiper
       }
-    }
+    },
+    mounted() {
+      this.swiper.slideTo(3, 1000, false)
+    },
+   data(){
+        return {
+                swiperOptions: {
+                    //添加分页器
+                    pagination: {
+                        //默认的圆点类型
+                        el: '.swiper-pagination'
+                    },
+                    //环路,当为true时则会循环
+                    loop : true,
+                    //切换样式
+                    effect:'coverflow',
+                    //自动切换
+                    autoplay: {
+                        //隔2000ms切换一次
+                        delay: 2000
+                    },
+                }
+            }
    }
 }
 </script>>
