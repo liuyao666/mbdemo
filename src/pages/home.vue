@@ -39,6 +39,21 @@
         <p class="daohang_title">{{item.title}}</p>
       </div>
     </div>
+    <div class="ddqiang">
+      <div class="ddqheader">
+        <p>咚咚抢</p>
+        <p>整点特惠开抢</p>
+      </div>
+      <div class="time">
+        <div class="timelist" v-for="(item,index) in timearr" :key="index">
+          <p>{{item.time}}</p>
+          <p>{{item.data}}</p>
+        </div>
+      </div>
+      <div class="ddqlist">
+
+      </div>
+    </div>
     <!-- <Swiper></Swiper> -->
     <BottomBar></BottomBar>
     <router-view></router-view>
@@ -78,6 +93,20 @@ export default {
         { title: "大额神券",url:"https://img.alicdn.com/imgextra/i3/2053469401/O1CN01DxRkMF2JJi0dfsV7f_!!2053469401.png"  },
         { title: "限时爆品",url:"https://img.alicdn.com/imgextra/i2/2053469401/O1CN01cd4Sbe2JJi0BtsCQ9_!!2053469401.png"  }
         ],
+      timearr:[
+        { time:"13:00",data:"已开抢" },
+        { time:"15:00",data:"已开抢" },
+        { time:"17:00",data:"已开抢" },
+        // { time:"19:00",data:"已开抢" },
+        // { time:"21:00",data:"已开抢" },
+        // { time:"23:00",data:"已开抢" },
+        // { time:"23:00",data:"已开抢" },
+        // { time:"23:00",data:"已开抢" },
+        // { time:"23:00",data:"已开抢" },
+        // { time:"23:00",data:"已开抢" },
+        // { time:"23:00",data:"已开抢" },
+        // { time:"23:00",data:"已开抢" },
+      ],
       active: "",
       down:false,
     };
@@ -234,6 +263,7 @@ li {
   background-color:#fff;
   display: flex;
   flex-wrap: wrap;
+  overflow: hidden;
 }
 .daohanglist{
   width:20%;
@@ -248,5 +278,60 @@ li {
   top: 50%;
   margin-left: -25px;
   margin-top: -25px;
+}
+/* 咚咚抢部分 */
+.ddqiang{
+  width: 97%;
+  height: 267px;
+  margin: 5px 5px;
+  border-radius: 5px;
+  /* background-color:#fff; */
+  background-color:yellow;
+  display: inline-block;
+}
+.ddqheader{
+  width: 97%;
+  height: 23px;
+  margin: 5px 5px;
+  display: flex;
+  background-color:red;
+}
+.ddqheader p:first-child{
+  font-size: 16px
+}
+.ddqheader p:nth-child(2){
+  line-height: 23px;
+  margin-left: 10px;
+  color: #888;
+}
+.time{
+  width:300px;
+  height: 40px;
+  margin: 5px 5px;
+  background-color: pink;
+  display: flex;
+  /* float: left; */
+  overflow-x: scroll;
+  white-space: nowrap;
+  /* overflow: hidden; */
+}
+.timelist{
+  /* display: block; */
+  float: left;
+  width: 80px;
+  height: 40px;
+  margin: 0 5px;
+  background-color: blue;
+  border-radius: 20px;
+   
+}
+.timelist p:first-child{
+  text-align: center;
+  margin-top: 5px;
+  font-size: 14px;
+}
+.timelist p:nth-child(2){
+  text-align: center;
+  font-size: 12px;
 }
 </style>
