@@ -1,5 +1,6 @@
 <template>
      <swiper ref="mySwiper" :options="swiperOption" >
+        <!-- 轮播块 -->
         <swiper-slide><img src="../../public/img/1.jpg"></swiper-slide>
         <swiper-slide><img src="../../public/img/2.jpg"></swiper-slide>
         <swiper-slide><img src="../../public/img/3.jpg"></swiper-slide>
@@ -26,6 +27,7 @@ export default {
       }
     },
     mounted() {
+        console.log(this.swiper)
       this.swiper.slideTo(3, 1000, false)
     },
    data(){
